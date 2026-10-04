@@ -5,7 +5,7 @@ public:
         while(x!=0){
             int rem=x%10;
             m=m*10+rem;
-            if(m<pow(-2, 31) || m>pow(2, 31)-1){m=0;}
+            if(m<INT_MIN || m>INT_MAX){m=0;}
             x=x/10;
         }
         

@@ -8,9 +8,6 @@ public:
             m=m*10+n;
             y=y/10;
         }
-        if(x==m){
-            return true;
-        }
-        return false;
+        return x==m;
     }
 };

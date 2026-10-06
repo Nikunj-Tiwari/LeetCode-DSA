@@ -27,8 +27,7 @@ public:
             }
             for(int  i=0;i<s.size();i++){
                 int r=1;
-                if(i==s.size()-1){r=1;}
-                else if(a[i]<a[i+1]){
+                if(i + 1 < s.size() && a[i] < a[i + 1]){
                     r=-1;
                 }
                 v +=a[i]*r;

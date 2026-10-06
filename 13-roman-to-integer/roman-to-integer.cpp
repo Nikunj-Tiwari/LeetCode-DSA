@@ -1,27 +1,38 @@
 class Solution {
 public:
     int romanToInt(string s) {
-        auto val = [](char c) {
-            switch (c) {
-                case 'I': return 1;
-                case 'V': return 5;
-                case 'X': return 10;
-                case 'L': return 50;
-                case 'C': return 100;
-                case 'D': return 500;
-                case 'M': return 1000;
+        int v=0,a[s.size()];
+        for(int i=0;i<s.size();i++){
+            if(s[i]=='I'){
+                a[i]=1;
             }
-            return 0;
-        };
-
-        int total = 0;
-        for (int i = 0; i < s.size(); i++) {
-            int cur = val(s[i]);
-            if (i + 1 < s.size() && cur < val(s[i + 1]))
-                total -= cur;
-            else
-                total += cur;
+            if(s[i]=='V'){
+                a[i]=5;
+            }
+            if(s[i]=='X'){
+                a[i]=10;
+            }
+            if(s[i]=='L'){
+                a[i]=50;
+            }
+            if(s[i]=='C'){
+                a[i]=100;
+            }
+            if(s[i]=='D'){
+                a[i]=500;
+            }
+            if(s[i]=='M'){
+                a[i]=1000;
+            }
+            }
+            for(int  i=0;i<s.size();i++){
+                int r=1;
+                if(i==s.size()-1){r=1;}
+                else if(a[i]<a[i+1]){
+                    r=-1;
+                }
+                v +=a[i]*r;
+            }
+            return v;
         }
-        return total;
-    }
 };
